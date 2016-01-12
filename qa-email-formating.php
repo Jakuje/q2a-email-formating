@@ -18,6 +18,13 @@
 	More about this license: http://www.question2answer.org/license.php
 */
 
+	function qa_send_notification($userid, $email, $handle, $subject, $body, $subs, $html = false)
+	{
+		$subs['^url'] = '<a href="' . $subs['^url'] . '">' . $subs['^url'] . '</a>';
+		return qa_send_notification_base($userid, $email, $handle, $subject, $body, $subs, true);
+	}
+
+
 	function qa_send_email($params)
 	{
 		require_once QA_INCLUDE_DIR.'qa-util-string.php';
